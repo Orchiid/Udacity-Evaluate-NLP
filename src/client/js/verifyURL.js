@@ -8,20 +8,4 @@
       return !!pattern.test(url);
     }
 
-    // const getUrl = document.getElementById('article-url').value
-
-  //   const verifyURL = (getUrl) => {
-  //     try { 
-  //     	return Boolean(new URL(getUrl.value)); 
-        
-  //     }
-  //     catch(e){ 
-  //       alert('Please enter a valid URL');
-  //     	return false; 
-         
-  //     }
-     
-      
-  // }
-// console.log(verifyURL.value);
 export default verifyURL ;

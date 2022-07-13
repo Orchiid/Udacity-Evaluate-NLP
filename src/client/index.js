@@ -4,7 +4,6 @@ import './styles/resets.scss'
 import './styles/header.scss'
 import './styles/form.scss'
 import './styles/footer.scss'
-const textApi = '64fed33bfad5b85b14021447bcd0a9be';
 let key= '';
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1'
 const verifyURL = require("./js/verifyURL.js");
@@ -16,13 +15,10 @@ const subjectivity = document.querySelector('#subjectivity');
 const confidence = document.querySelector('#confidence');
 const irony = document.querySelector('#irony');
 const polarity = document.querySelector('#polarity');
-
-
-
-// const apiUrl= `${baseURL}?key=${textApi.application_key}&url=${blogUrl}'&lang=en`
-
 import { getData } from './js/getData';
 const submit = document.querySelector('#submit')
+
+
 // add event listener to it when the click to call handleSubmit function
 window.addEventListener('DOMContentLoaded',() => {
     submit.addEventListener('click', (e) => {
@@ -53,17 +49,7 @@ window.addEventListener('DOMContentLoaded',() => {
             }else{
                 alert('Please enter a valid URL');
             }
-
-            
-           
-            
         })
-       
-        
-        // getData(apiUrl); console.log(apiUrl)
-        
-        // handleSubmit()
-
 })})
 
 
@@ -152,6 +138,3 @@ async function updateData(data) {
             console.log('Has not been posted')
             }
 }
-
-
-// export {handleSubmit};

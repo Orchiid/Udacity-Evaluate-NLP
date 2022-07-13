@@ -1,11 +1,15 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin')
+const dotenv = require('dotenv').config()
 
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',
-    stats: 'minimal',
+    stats: 'verbose',
     module: {
         rules: [
         {
@@ -35,7 +39,11 @@ module.exports = {
             verbose: true,
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        }),
+        new webpack.DefinePlugin({
+            API_KEY: JSON.stringify(process.env.API_KEY)
+            }),
+            new WorkboxPlugin.GenerateSW(),
         // TODO: configure workbox-webpack-plugin
     ]
 }
